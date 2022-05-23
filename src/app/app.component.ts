@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EMPLOYEE_BASE_URL } from './employee/constants/employee.constant';
-import { EmployeeModule } from './employee/employee.module';
+
 import { Employee } from './employee/model/employee.interface';
 
 @Component({
