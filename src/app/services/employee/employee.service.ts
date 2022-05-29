@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Employee } from '../../model/employee.interface';
+import { Employee } from '../../employee/model/employee.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -28,16 +28,23 @@ export class EmployeeService {
     );
   }
 
-  updateEmployee(employee: Employee): Observable<Employee> {
-    return this.httpClient.put<Employee>(
-      `${this.EMPLOYEE_BASE_URL}/update`,
-      employee
-    );
-  }
+  // updateEmployee(employee: Employee): Observable<Employee> {
+  //   return this.httpClient.put<Employee>(
+  //     `${this.EMPLOYEE_BASE_URL}/update`,
+  //     employee
+  //   );
+  // }
 
   deleteEmployee(employeeId: number): Observable<void> {
     return this.httpClient.delete<void>(
       `${this.EMPLOYEE_BASE_URL}/delete/${employeeId}`
+    );
+  }
+
+  updateEmployee(employee: Employee): Observable<Employee> {
+    return this.httpClient.put<Employee>(
+      `${this.EMPLOYEE_BASE_URL}/update`,
+      employee
     );
   }
 }

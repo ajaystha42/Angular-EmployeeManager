@@ -1,0 +1,67 @@
+<mat-card>
+  <mat-spinner *ngIf="false"></mat-spinner>
+  <form (ngSubmit)="addBtnClick()" [formGroup]="employeeForm" *ngIf="true">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="name"
+        required
+        minlength="3"
+        placeholder="Employee Name"
+        formControlName="name"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="email"
+        required
+        minlength="3"
+        placeholder="Employee Email"
+        formControlName="email"
+      />
+    </mat-form-field>
+    <div>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          name="jobTitle"
+          required
+          placeholder="Employee Job Title"
+          formControlName="jobTitle"
+        />
+      </mat-form-field>
+    </div>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        name="phone"
+        required
+        minlength="3"
+        placeholder="Employee Phone"
+        formControlName="phone"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="imageUrl"
+        required
+        minlength="3"
+        placeholder="Employee Image Url"
+        formControlName="imageUrl"
+      />
+    </mat-form-field>
+    <div>
+      <button mat-raised-button color="primary" type="submit">
+        {{ editMode ? "Update" : "Save" }}
+      </button>
+    </div>
+  </form>
+</mat-card>
