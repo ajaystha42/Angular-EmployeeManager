@@ -1,0 +1,82 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form
+    #signupForm="ngForm"
+    (ngSubmit)="onFormSignup(signupForm)"
+    *ngIf="!isLoading"
+  >
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="username"
+        required
+        placeholder="Username"
+        ngModel
+        #usernameInput="ngModel"
+      />
+      <mat-error *ngIf="!usernameInput.valid && usernameInput.touched"
+        >Please enter a valid username.</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="email"
+        name="email"
+        email
+        required
+        placeholder="Email"
+        ngModel
+        #emailInput="ngModel"
+      />
+      <mat-error *ngIf="!emailInput.valid && emailInput.touched"
+        >Please enter a valid email.</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        type="password"
+        name="password"
+        placeholder="Password with minimum 6 characters"
+        minlength="5"
+        matInput
+        ngModel
+        #passwordInput="ngModel"
+        required
+      />
+      <mat-error *ngIf="!passwordInput.valid && passwordInput.touched"
+        >Please enter a valid password.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- <mat-form-field>
+      <input
+        type="password"
+        name="rePassword"
+        placeholder="Re-Enter Password"
+        minlength="5"
+        matInput
+        ngModel
+        #rePassword="ngModel"
+        required
+      />
+      <mat-error *ngIf="!rePassword.valid && rePassword.touched"
+        >Please enter a valid re-password.
+      </mat-error>
+
+    </mat-form-field> -->
+    <button mat-raised-button color="primary" type="submit">Signup</button>
+  </form>
+</mat-card>
+<!-- <div>
+  <button
+    *ngIf="!isConfirm"
+    mat-raised-button
+    color="primary"
+    (click)="changeConfirmSetting()"
+  >
+    Confirm User
+  </button>
+</div> -->

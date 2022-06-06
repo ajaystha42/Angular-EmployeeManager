@@ -21,29 +21,29 @@ export class AddEmployeeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe({
-      next: (params: Params) => {
-        const id = params['id'];
-        if (id) {
-          this.editMode = true;
-          this.employeeService
-            .getEmployeeById(id)
-            .subscribe((response: Employee) => {
-              console.log({ response });
-              this.employee = response;
-              this.employeeForm.setValue({
-                name: response.name,
-                email: response.email,
-                jobTitle: response.jobTitle,
-                phone: response.phone,
-                imageUrl: response.imageUrl,
-              });
-            });
-        } else {
-          this.editMode = false;
-        }
-      },
-    });
+    // this.route.params.subscribe({
+    //   next: (params: Params) => {
+    //     const id = params['id'];
+    //     if (id) {
+    //       this.editMode = true;
+    //       this.employeeService
+    //         .getEmployeeById(id)
+    //         .subscribe((response: Employee) => {
+    //           console.log({ response });
+    //           this.employee = response;
+    //           this.employeeForm.setValue({
+    //             name: response.name,
+    //             email: response.email,
+    //             jobTitle: response.jobTitle,
+    //             phone: response.phone,
+    //             imageUrl: response.imageUrl,
+    //           });
+    //         });
+    //     } else {
+    //       this.editMode = false;
+    //     }
+    //   },
+    // });
     this.formInitialize();
   }
 
@@ -58,30 +58,29 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   addBtnClick() {
-    if (this.employeeForm.invalid) return;
-    const value = this.employeeForm.value;
-
-    if (this.editMode) {
-      console.log({ emplooyee: this.employee });
-      value.id = this.employee.id;
-      value.employeeCode = this.employee.employeeCode;
-      this.employeeService.updateEmployee(value).subscribe({
-        next: (response: any) => {
-          this.employeeForm.reset();
-          this.router.navigate(['/']);
-        },
-        error: (err: HttpErrorResponse) => alert(err.message),
-      });
-    } else {
-      this.employeeService.addEmployee(value).subscribe({
-        next: (res: Employee) => {
-          this.employeeForm.reset();
-          this.router.navigate(['/']);
-        },
-        error: (err: HttpErrorResponse) => {
-          alert(err.message);
-        },
-      });
-    }
+    // if (this.employeeForm.invalid) return;
+    // const value = this.employeeForm.value;
+    // if (this.editMode) {
+    //   console.log({ emplooyee: this.employee });
+    //   value.id = this.employee.id;
+    //   value.employeeCode = this.employee.employeeCode;
+    //   this.employeeService.updateEmployee(value).subscribe({
+    //     next: (response: any) => {
+    //       this.employeeForm.reset();
+    //       this.router.navigate(['/']);
+    //     },
+    //     error: (err: HttpErrorResponse) => alert(err.message),
+    //   });
+    // } else {
+    //   this.employeeService.addEmployee(value).subscribe({
+    //     next: (res: Employee) => {
+    //       this.employeeForm.reset();
+    //       this.router.navigate(['/']);
+    //     },
+    //     error: (err: HttpErrorResponse) => {
+    //       alert(err.message);
+    //     },
+    //   });
+    // }
   }
 }

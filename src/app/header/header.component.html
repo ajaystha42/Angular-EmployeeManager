@@ -1,8 +1,8 @@
 <mat-toolbar color="primary">
-  <span><a routerLink="/" style="cursor: pointer"> Employee Manager </a></span>
+  <span><a routerLink="/" style="cursor: pointer"> Compare Yourself </a></span>
   <span class="ajay"></span>
   <ul>
-    <!-- <li>
+    <li *ngIf="!isAuthenticated">
       <a
         mat-button
         routerLink="/login"
@@ -12,7 +12,7 @@
         Login</a
       >
     </li>
-    <li>
+    <li *ngIf="!isAuthenticated">
       <a
         mat-button
         routerLink="/signup"
@@ -21,19 +21,31 @@
       >
         Signup</a
       >
-    </li> -->
-    <li>
+    </li>
+    <li *ngIf="isAuthenticated">
       <a
         mat-button
-        routerLink="/add"
+        routerLink="/add-compare"
         routerLinkActive="mat-accent"
         style="cursor: pointer"
       >
         Add</a
       >
     </li>
-    <li>
-      <button mat-button style="cursor: pointer">Logout</button>
+    <li *ngIf="isAuthenticated">
+      <button mat-button style="cursor: pointer" (click)="logout()">
+        Logout
+      </button>
+    </li>
+    <li *ngIf="isAuthenticated">
+      <a
+        mat-button
+        routerLink="/single"
+        routerLinkActive="mat-accent"
+        style="cursor: pointer"
+      >
+        My Account</a
+      >
     </li>
   </ul>
 </mat-toolbar>

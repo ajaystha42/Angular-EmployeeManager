@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row" *ngIf="employees.length > 0">
+    <div class="col-md-4" *ngFor="let employee of employees">
+      <div class="card user-card">
+        <div class="card-header">
+          <h5>Profile</h5>
+        </div>
+        <div class="card-block">
+          <h6 class="f-w-600 m-t-25 m-b-10">Ajay</h6>
+          <p class="text-muted">Age: {{ employee.age }}</p>
+          <p class="text-muted">Height: {{ employee.height }}</p>
+          <p class="text-muted">Income: {{ employee.income }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

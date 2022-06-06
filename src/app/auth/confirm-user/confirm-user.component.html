@@ -1,0 +1,36 @@
+<mat-card>
+  <form #confirmForm="ngForm" (ngSubmit)="onConfirmForm(confirmForm)">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="username"
+        required
+        placeholder="Username"
+        ngModel
+        #username="ngModel"
+      />
+      <mat-error *ngIf="!username.valid && username.touched"
+        >Please enter a valid username.</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="verificationCode"
+        required
+        placeholder="Code"
+        ngModel
+        #verificationCode="ngModel"
+      />
+      <mat-error *ngIf="!verificationCode.valid && verificationCode.touched"
+        >Please enter a valid email.</mat-error
+      >
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">
+      Confirm Your Account
+    </button>
+  </form>
+</mat-card>

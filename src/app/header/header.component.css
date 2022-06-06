@@ -17,4 +17,10 @@ ul{
   ul{
     display: flex;
   }
+
+  mat-spinner{
+    margin: 0;
+    text-align: center;
+  }
+  
   

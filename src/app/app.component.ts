@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './services/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'employeeManager-client';
-  constructor(private httpClient: HttpClient) {}
+  title = 'AWS Cognito';
+  constructor(private readonly authService: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.authService.autoLogin();
+  }
 }

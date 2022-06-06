@@ -1,0 +1,44 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (ngSubmit)="addBtnClick()" [formGroup]="compareForm">
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        name="height"
+        required
+        minlength="3"
+        placeholder="Your height"
+        formControlName="height"
+      />
+    </mat-form-field>
+    <div>
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          name="age"
+          required
+          placeholder="Your Age"
+          formControlName="age"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          name="income"
+          required
+          placeholder="Your Income"
+          formControlName="income"
+        />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <button mat-raised-button color="primary" type="submit">Save</button>
+    </div>
+  </form>
+</mat-card>

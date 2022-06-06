@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class EmployeeComponent implements OnInit, OnDestroy {
   employees: Employee[] = [];
   employeesSubscription: Subscription;
-  loading = true;
+  loading = false;
   constructor(
     private readonly employeeService: EmployeeService,
     private router: Router
@@ -24,15 +24,15 @@ export class EmployeeComponent implements OnInit, OnDestroy {
   }
 
   getEmployees() {
-    this.employeesSubscription = this.employeeService.getEmployees().subscribe({
-      next: (res: Employee[]) => {
-        this.loading = false;
-        this.employees = res;
-      },
-      error: (err: HttpErrorResponse) => {
-        alert(err.message);
-      },
-    });
+    // this.employeesSubscription = this.employeeService.getEmployees().subscribe({
+    //   next: (res: Employee[]) => {
+    //     this.loading = false;
+    //     this.employees = res;
+    //   },
+    //   error: (err: HttpErrorResponse) => {
+    //     alert(err.message);
+    //   },
+    // });
     //Deprecated
     // .subscribe((res: Employee[]) => {
     //   this.employees = res;
@@ -44,15 +44,15 @@ export class EmployeeComponent implements OnInit, OnDestroy {
   }
 
   onDeleteClick(id: number) {
-    console.log('delete calling');
-    this.employeeService.deleteEmployee(id).subscribe({
-      next: (response: any) => {
-        this.getEmployees();
-      },
-    });
+    // console.log('delete calling');
+    // this.employeeService.deleteEmployee(id).subscribe({
+    //   next: (response: any) => {
+    //     this.getEmployees();
+    //   },
+    // });
   }
 
   ngOnDestroy(): void {
-    this.employeesSubscription.unsubscribe();
+    // this.employeesSubscription.unsubscribe();
   }
 }

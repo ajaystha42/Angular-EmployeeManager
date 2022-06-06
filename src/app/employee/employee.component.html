@@ -24,7 +24,7 @@
           <hr />
           <p class="m-t-15">Job Title: {{ employee.jobTitle }}</p>
           <mat-action-row>
-            <a mat-button color="primary" (click)="onEditClick(employee.id)"
+            <a mat-button color="primary" [routerLink]="['/edit', employee.id]"
               >EDIT</a
             >
             <button
